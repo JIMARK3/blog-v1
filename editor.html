@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown 编辑器</title>
+    <link rel="stylesheet" href="editor.css">
+    <script src="https://js.cybozu.com/markedjs/v0.3.5/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="editor-header">
+        <nav>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> 返回首页
+            </a>
+            <h1>创建新文章</h1>
+        </nav>
+    </header>
+
+    <div class="editor-container">
+        <div class="form-group">
+            <div class="input-group">
+                <label for="title">
+                    <i class="fas fa-heading"></i> 文章标题
+                </label>
+                <input type="text" id="title" placeholder="输入文章标题..." class="input-field">
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="category">
+                        <i class="fas fa-folder"></i> 文章分类
+                    </label>
+                    <select id="category" class="input-field">
+                        <option value="os">操作系统</option>
+                        <option value="programming">编程技术</option>
+                        <option value="blog">博客文章</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="tags">
+                        <i class="fas fa-tags"></i> 文章标签
+                    </label>
+                    <input type="text" id="tags" placeholder="使用逗号分隔多个标签..." class="input-field">
+                </div>
+            </div>
+        </div>
+        
+        <div class="editor-wrapper">
+            <div class="editor-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-edit"></i> Markdown 编辑</h2>
+                    <div class="editor-tools">
+                        <button class="tool-btn" title="加粗" onclick="insertMarkdown('**', '**')">
+                            <i class="fas fa-bold"></i>
+                        </button>
+                        <button class="tool-btn" title="斜体" onclick="insertMarkdown('*', '*')">
+                            <i class="fas fa-italic"></i>
+                        </button>
+                        <button class="tool-btn" title="链接" onclick="insertMarkdown('[', '](url)')">
+                            <i class="fas fa-link"></i>
+                        </button>
+                        <button class="tool-btn" title="代码块" onclick="insertMarkdown('```\n', '\n```')">
+                            <i class="fas fa-code"></i>
+                        </button>
+                        <button class="tool-btn" title="列表" onclick="insertMarkdown('- ', '')">
+                            <i class="fas fa-list-ul"></i>
+                        </button>
+                    </div>
+                </div>
+                <textarea id="markdown-input" placeholder="在这里输入 Markdown 内容..."></textarea>
+            </div>
+            <div class="preview-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-eye"></i> 预览</h2>
+                </div>
+                <div id="preview"></div>
+            </div>
+        </div>
+        
+        <div class="action-bar">
+            <button id="save-button" class="primary-btn">
+                <i class="fas fa-save"></i> 保存文章
+            </button>
+            <button id="clear-button" class="secondary-btn">
+                <i class="fas fa-trash"></i> 清空内容
+            </button>
+        </div>
+    </div>
+    <script src="editor.js"></script>
+</body>
+</html>

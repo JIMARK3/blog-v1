@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术博客</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Tech Blog</div>
+            <ul>
+                <li><a href="#" data-category="all">全部文章</a></li>
+                <li><a href="#" data-category="os">操作系统</a></li>
+                <li><a href="#" data-category="programming">编程技术</a></li>
+                <li><a href="#" data-category="blog">博客文章</a></li>
+            </ul>
+            <a href="editor.html" class="new-article-btn">写文章</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="articles-container"></div>
+    </main>
+
+    <div id="article-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="article-detail"></div>
+        </div>
+    </div>
+
+    <script src="https://js.cybozu.com/markedjs/v0.3.5/marked.min.js"></script>
+    <script src="articles.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
